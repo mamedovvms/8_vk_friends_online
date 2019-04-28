@@ -2,7 +2,7 @@ import vk
 from getpass import getpass
 
 
-APP_ID = 6964099  # чтобы получить app_id, нужно зарегистрировать своё приложение на https://vk.com/dev
+APP_ID = 6964099
 
 
 def get_user_login():
