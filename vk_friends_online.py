@@ -20,7 +20,7 @@ def сonnect_to_account(login, password):
         app_id=APP_ID,
         user_login=login,
         user_password=password,
-        scope='friends+groups'
+        scope='friends'
     )
     api = vk.API(session)
 
@@ -28,8 +28,10 @@ def сonnect_to_account(login, password):
 
 
 def get_online_friends(api):
-    friends = api.friends.get(v='5.95', fields=True)['items']
-    friends_online = [friend for friend in friends if friend['online']]
+    id_friends_online = api.friends.getOnline(v='5.95')
+    friends_online = []
+    for id_user in id_friends_online:
+        friends_online.append(api.users.get(v='5.95', user_ids=id_user)[0])
     return friends_online
 
 
