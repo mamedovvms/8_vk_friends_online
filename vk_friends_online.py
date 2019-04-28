@@ -28,10 +28,10 @@ def сonnect_to_account(login, password):
 
 
 def get_online_friends(api):
+
     id_friends_online = api.friends.getOnline(v='5.95')
-    friends_online = []
-    for id_user in id_friends_online:
-        friends_online.append(api.users.get(v='5.95', user_ids=id_user)[0])
+    friends_online = api.users.get(v='5.95', user_ids=id_friends_online)
+
     return friends_online
 
 
