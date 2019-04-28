@@ -3,6 +3,7 @@ from getpass import getpass
 
 
 APP_ID = 6964099
+VERSION_API = '5.95'
 
 
 def get_user_login():
@@ -29,8 +30,8 @@ def сonnect_to_account(login, password):
 
 def get_online_friends(api):
 
-    id_friends_online = api.friends.getOnline(v='5.95')
-    friends_online = api.users.get(v='5.95', user_ids=id_friends_online)
+    id_friends_online = api.friends.getOnline(v=VERSION_API)
+    friends_online = api.users.get(v=VERSION_API, user_ids=id_friends_online)
 
     return friends_online
 
