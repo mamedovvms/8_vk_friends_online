@@ -50,10 +50,10 @@ def main():
     password = get_user_password()
     try:
         api = сonnect_to_account(login, password)
+        friends_online = get_online_friends(api)
+        output_friends_to_console(friends_online)
     except vk.exceptions.VkAuthError:
-        exit(1)
-    friends_online = get_online_friends(api)
-    output_friends_to_console(friends_online)
+        pass
 
 
 if __name__ == '__main__':
