@@ -17,6 +17,7 @@ def get_user_password():
 
 
 def сonnect_to_account(login, password):
+
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
@@ -24,7 +25,6 @@ def сonnect_to_account(login, password):
         scope='friends'
     )
     api = vk.API(session)
-
     return api
 
 
@@ -48,7 +48,10 @@ def output_friends_to_console(friends_online):
 def main():
     login = get_user_login()
     password = get_user_password()
-    api = сonnect_to_account(login, password)
+    try:
+        api = сonnect_to_account(login, password)
+    except vk.exceptions.VkAuthError:
+        exit('Login or password input error')
     friends_online = get_online_friends(api)
     output_friends_to_console(friends_online)
 
