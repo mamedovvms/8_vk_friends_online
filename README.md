@@ -18,8 +18,10 @@ Remember, it is recommended to use [virtualenv/venv](https://devman.org/encyclop
 
 ```bash
 $ python vk_friends_online.py
+
 Please enter your login: mamedovvms@mail.ru
 Please enter your password: # when you enter the password will not be displayed
+
 Online friends
 Petrov Ivan
 Sokolov Vladimir

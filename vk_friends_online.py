@@ -16,7 +16,7 @@ def get_user_password():
     return password
 
 
-def сonnect_to_account(login, password):
+def get_vk_api(login, password):
 
     session = vk.AuthSession(
         app_id=APP_ID,
@@ -24,14 +24,14 @@ def сonnect_to_account(login, password):
         user_password=password,
         scope='friends'
     )
-    api = vk.API(session)
+    api = vk.API(session, v=VERSION_API)
     return api
 
 
 def get_online_friends(api):
 
-    id_friends_online = api.friends.getOnline(v=VERSION_API)
-    friends_online = api.users.get(v=VERSION_API, user_ids=id_friends_online)
+    id_friends_online = api.friends.getOnline()
+    friends_online = api.users.get(user_ids=id_friends_online)
 
     return friends_online
 
