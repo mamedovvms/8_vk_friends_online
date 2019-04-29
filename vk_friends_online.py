@@ -51,7 +51,7 @@ def main():
     try:
         api = сonnect_to_account(login, password)
     except vk.exceptions.VkAuthError:
-        exit('Login or password input error')
+        exit(1)
     friends_online = get_online_friends(api)
     output_friends_to_console(friends_online)
 
